@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiếng Anh Lớp 3 - Global Success (Unit 1 - 20)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Lexend, Be Vietnam Pro, Nunito with display=swap and vietnamese subset -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Lexend:wght@400;500;600;700;800&family=Nunito:ital,wght@0,500;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        lexend: ['Lexend', 'Nunito', '"Be Vietnam Pro"', 'system-ui', 'sans-serif'],
+                        vietnam: ['"Be Vietnam Pro"', 'Lexend', 'Nunito', 'sans-serif'],
+                        nunito: ['Nunito', '"Be Vietnam Pro"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#00A8FF',
+                            yellow: '#FFC048',
+                            pink: '#FF5E7E',
+                            green: '#05C46B',
+                            purple: '#A3CB38',
+                            indigo: '#575FCF'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', 'Lexend', 'Nunito', system-ui, -apple-system, sans-serif;
+            background-color: #F0F6FF;
+            background-image: radial-gradient(#d0e3ff 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        .font-heading {
+            font-family: 'Lexend', 'Nunito', 'Be Vietnam Pro', sans-serif;
+            font-weight: 700;
+        }
+
+        .bounce-hover {
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .bounce-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .push-btn {
+            transition: all 0.12s ease;
+            box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.15);
+        }
+        .push-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Pulse glowing border effect for active microphone */
+        .mic-active {
+            animation: micGlow 1.2s infinite alternate;
+        }
+        @keyframes micGlow {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            100% { box-shadow: 0 0 0 16px rgba(239, 68, 68, 0); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #EAF2FF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #93C5FD;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3B82F6;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800 flex flex-col justify-between selection:bg-amber-200">
+
+    <header class="sticky top-0 z-50 glass-card border-b-4 border-amber-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div onclick="navigateTo('units')" class="flex items-center gap-3 cursor-pointer group">
+                <div class="w-11 h-11 bg-amber-400 rounded-2xl flex items-center justify-center text-white text-2xl shadow-md transform -rotate-6 group-hover:rotate-0 transition-transform">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1 class="font-heading font-bold text-xl sm:text-2xl text-sky-600 tracking-wide flex items-center gap-2">
+                        English 3 <span class="text-xs font-bold px-2.5 py-0.5 bg-amber-400 text-slate-900 rounded-full font-sans shadow-sm">Global Success</span>
+                    </h1>
+                    <p class="text-[11px] text-slate-500 font-bold hidden sm:block">Trực Quan • Phát Âm Chuẩn • Nghe - Nói - Đọc - Viết</p>
+                </div>
+            </div>
+
+            <!-- Header Stats & Actions -->
+            <div class="flex items-center gap-2.5">
+                <!-- Stars Counter -->
+                <div class="bg-amber-50 border-2 border-amber-300 px-3 py-1 rounded-full flex items-center gap-2 shadow-inner">
+                    <span class="text-xl animate-bounce">⭐</span>
+                    <span id="stars-counter" class="font-heading font-bold text-amber-600 text-lg sm:text-xl">0</span>
+                </div>
+
+                <!-- Badges Modal Trigger -->
+                <button onclick="openBadgesModal()" class="bg-indigo-50 hover:bg-indigo-100 border-2 border-indigo-200 text-indigo-700 px-3 py-1 rounded-full flex items-center gap-1 font-bold text-xs sm:text-sm transition-colors">
+                    <span class="text-lg">🏆</span>
+                    <span class="hidden md:inline font-heading">Thành Tích</span>
+                </button>
+
+                <!-- Sound Mute Toggle -->
+                <button id="sound-btn" onclick="toggleSound()" class="w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-600 transition-colors" title="Bật/Tắt âm thanh">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl w-full mx-auto px-4 py-6 flex-grow">
+
+        <!-- ================= VIEW 1: UNIT SELECTION GRID (UNITS 1 - 20) ================= -->
+        <section id="view-units-grid" class="space-y-6">
+            <!-- Hero Header -->
+            <div class="bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 rounded-3xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-3 z-10 text-center md:text-left max-w-xl">
+                    <span class="bg-white/20 text-amber-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider font-heading">
+                        ✨ Toàn Bộ 20 Bài Học - Lớp 3
+                    </span>
+                    <h2 class="font-heading text-2xl sm:text-4xl font-bold leading-snug">Học Tiếng Anh Lớp 3 Thật Dễ Dàng & Trực Quan! 🚀</h2>
+                    <p class="text-sky-100 text-xs sm:text-sm font-medium">Bấm chọn một Unit bên dưới để xem **Bản Đồ Bài Học**, luyện **Nghe, Nói, Đọc, Viết** và tích ⭐ nhận huy chương nhé!</p>
+                </div>
+                <div class="z-10 flex items-center justify-center">
+                    <div class="w-28 h-28 sm:w-36 sm:h-36 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-6xl sm:text-7xl shadow-2xl animate-bounce">
+                        🦊
+                    </div>
+                </div>
+                <!-- Background Glow -->
+                <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-white/10 rounded-full blur-2xl"></div>
+            </div>
+
+            <!-- Semester Tabs -->
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <h3 class="font-heading font-bold text-xl sm:text-2xl text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-book-bookmark text-sky-500"></i> Danh Sách 20 Unit
+                </h3>
+                <div class="flex gap-2">
+                    <button onclick="filterUnits('all')" id="tab-all" class="semester-btn px-3 py-1.5 rounded-xl font-heading font-bold text-xs sm:text-sm bg-sky-500 text-white shadow-sm">Tất Cả (20)</button>
+                    <button onclick="filterUnits('hk1')" id="tab-hk1" class="semester-btn px-3 py-1.5 rounded-xl font-heading font-bold text-xs sm:text-sm bg-white text-slate-600 hover:bg-sky-50 border border-slate-200">Học Kỳ 1 (1-10)</button>
+                    <button onclick="filterUnits('hk2')" id="tab-hk2" class="semester-btn px-3 py-1.5 rounded-xl font-heading font-bold text-xs sm:text-sm bg-white text-slate-600 hover:bg-sky-50 border border-slate-200">Học Kỳ 2 (11-20)</button>
+                </div>
+            </div>
+
+            <!-- Unit Cards Grid -->
+            <div id="units-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Dynamically generated units cards -->
+            </div>
+        </section>
+
+        <!-- ================= VIEW 2: ACTIVE UNIT WORKSPACE (4 SKILLS + VISUAL LESSON) ================= -->
+        <section id="view-unit-workspace" class="space-y-6 hidden">
+            <!-- Top Navigation & Unit Header -->
+            <div class="glass-card p-4 sm:p-6 rounded-3xl border-2 border-sky-100 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <button onclick="navigateTo('units')" class="w-11 h-11 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl flex items-center justify-center font-bold transition-colors shrink-0">
+                        <i class="fa-solid fa-arrow-left text-lg"></i>
+                    </button>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span id="active-unit-tag" class="bg-amber-400 text-slate-900 font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">Unit 1</span>
+                            <span id="active-unit-term" class="text-xs font-bold text-slate-400">Học kỳ 1</span>
+                        </div>
+                        <h2 id="active-unit-title" class="font-heading font-bold text-2xl sm:text-3xl text-sky-600 mt-1">Hello</h2>
+                        <p id="active-unit-subtitle" class="text-xs sm:text-sm text-slate-500 font-medium">Xin chào và tự giới thiệu bản thân</p>
+                    </div>
+                </div>
+
+                <!-- Unit Dropdown Quick Jump -->
+                <div class="w-full md:w-64">
+                    <select id="unit-quick-select" onchange="openUnitWorkspace(parseInt(this.value))" class="w-full bg-sky-50 border-2 border-sky-200 text-slate-800 font-heading font-bold text-sm rounded-2xl px-3.5 py-2 focus:outline-none">
+                        <!-- Populated via JS -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- Workspace Tabs (Visual Lesson, Listening, Speaking, Reading, Writing) -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 no-scrollbar">
+                <button onclick="switchSkillTab('lecture')" id="skill-tab-lecture" class="skill-tab px-4 py-2.5 rounded-2xl font-heading font-bold text-xs sm:text-sm bg-sky-500 text-white shadow-sm flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-book-open-reader text-amber-300"></i> Bài Học Trực Quan & Từ Vựng
+                </button>
+                <button onclick="switchSkillTab('listening')" id="skill-tab-listening" class="skill-tab px-4 py-2.5 rounded-2xl font-heading font-bold text-xs sm:text-sm bg-white text-slate-600 hover:bg-sky-50 border border-slate-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-headphones text-sky-500"></i> Luyện NGHE
+                </button>
+                <button onclick="switchSkillTab('speaking')" id="skill-tab-speaking" class="skill-tab px-4 py-2.5 rounded-2xl font-heading font-bold text-xs sm:text-sm bg-white text-slate-600 hover:bg-sky-50 border border-slate-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-microphone text-rose-500"></i> Luyện NÓI
+                </button>
+                <button onclick="switchSkillTab('reading')" id="skill-tab-reading" class="skill-tab px-4 py-2.5 rounded-2xl font-heading font-bold text-xs sm:text-sm bg-white text-slate-600 hover:bg-sky-50 border border-slate-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-book-open text-emerald-500"></i> Luyện ĐỌC
+                </button>
+                <button onclick="switchSkillTab('writing')" id="skill-tab-writing" class="skill-tab px-4 py-2.5 rounded-2xl font-heading font-bold text-xs sm:text-sm bg-white text-slate-600 hover:bg-sky-50 border border-slate-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-pen-ruler text-purple-500"></i> Luyện VIẾT
+                </button>
+            </div>
+
+            <!-- TAB 1: VISUAL LESSON & THEORY PANEL -->
+            <div id="panel-lecture" class="skill-panel space-y-6">
+                <!-- Visual Lesson Banner Header -->
+                <div class="bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 rounded-3xl p-6 text-white shadow-md flex items-center justify-between">
+                    <div class="space-y-1">
+                        <span class="bg-white/20 text-white font-heading font-bold text-xs px-3 py-1 rounded-full uppercase">Kiến Thức Trọng Tâm</span>
+                        <h3 id="lesson-banner-title" class="font-heading font-bold text-2xl sm:text-3xl">Tổng Quan Unit</h3>
+                        <p id="lesson-banner-desc" class="text-xs sm:text-sm text-sky-100 font-medium">Luyện tập từ vựng chuẩn giọng đọc và các mẫu câu ngữ pháp giao tiếp nhé!</p>
+                    </div>
+                    <div id="lesson-banner-icon" class="text-5xl sm:text-6xl hidden sm:block">
+                        📖
+                    </div>
+                </div>
+
+                <!-- Grammar Summary Box -->
+                <div class="glass-card p-6 rounded-3xl border-2 border-amber-200 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-heading font-bold text-lg text-amber-700 flex items-center gap-2">
+                            <i class="fa-solid fa-star text-amber-500"></i> Mẫu Câu Ngữ Pháp Trọng Tâm
+                        </h3>
+                        <span class="text-xs font-bold text-amber-600 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">Grammar Focus</span>
+                    </div>
+                    <div id="lecture-grammar-list" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+
+                <!-- Vocabulary Flashcards List -->
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-heading font-bold text-lg text-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-spell-check text-sky-500"></i> Bảng Từ Vựng Trực Quan
+                        </h3>
+                        <span class="text-xs font-bold text-slate-500">👉 Chạm vào thẻ để nghe đọc mẫu (+1 ⭐)</span>
+                    </div>
+                    <div id="lecture-vocab-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: LISTENING PRACTICE PANEL -->
+            <div id="panel-listening" class="skill-panel space-y-6 hidden">
+                <div class="glass-card p-6 rounded-3xl border-2 border-sky-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <h3 class="font-heading font-bold text-2xl text-sky-600">👂 Luyện Nghe Chọn Đáp Án</h3>
+                        <p class="text-xs text-slate-500 font-medium">Nhấn vào biểu tượng loa để nghe và chọn từ/câu đúng nhất nhé!</p>
+                    </div>
+                    <span id="listening-score-tag" class="bg-amber-100 border border-amber-300 text-amber-800 font-bold text-xs px-3 py-1 rounded-full">⭐ +2 cho mỗi câu đúng</span>
+                </div>
+
+                <div class="max-w-xl mx-auto glass-card p-8 rounded-3xl border-4 border-sky-300 shadow-lg text-center space-y-6">
+                    <button id="listening-audio-btn" onclick="playListeningAudio()" class="w-24 h-24 bg-sky-500 hover:bg-sky-400 text-white rounded-full mx-auto flex items-center justify-center text-4xl shadow-xl transition-transform active:scale-95">
+                        <i class="fa-solid fa-volume-high animate-pulse"></i>
+                    </button>
+                    <p class="text-xs font-bold text-sky-600 uppercase tracking-wider">👉 Bấm nút để nghe âm thanh</p>
+
+                    <div id="listening-options-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        <!-- Options generated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: SPEAKING PRACTICE PANEL -->
+            <div id="panel-speaking" class="skill-panel space-y-6 hidden">
+                <div class="glass-card p-6 rounded-3xl border-2 border-rose-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <h3 class="font-heading font-bold text-2xl text-rose-600">🎤 Luyện Phát Âm (Speaking)</h3>
+                        <p class="text-xs text-slate-500 font-medium">Bấm nút Micro, đọc to câu mẫu và máy sẽ chấm điểm cho bé!</p>
+                    </div>
+                    <span class="bg-rose-100 border border-rose-300 text-rose-800 font-bold text-xs px-3 py-1 rounded-full">AI Chấm Điểm</span>
+                </div>
+
+                <div class="max-w-xl mx-auto glass-card p-8 rounded-3xl border-4 border-rose-300 shadow-lg text-center space-y-6">
+                    <div>
+                        <span class="text-xs font-bold text-slate-400 uppercase">Câu phát âm mẫu:</span>
+                        <h4 id="speaking-target-text" class="font-heading font-bold text-2xl sm:text-3xl text-slate-800 mt-1">Hello, I'm Ben.</h4>
+                        <p id="speaking-target-vi" class="text-xs font-bold text-sky-600 mt-1">Xin chào, tớ là Ben.</p>
+                    </div>
+
+                    <div class="flex justify-center items-center gap-4">
+                        <button onclick="speakEnglish(document.getElementById('speaking-target-text').innerText)" class="w-12 h-12 bg-sky-100 hover:bg-sky-200 text-sky-600 rounded-2xl flex items-center justify-center text-xl font-bold shadow-sm" title="Nghe câu mẫu">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+
+                        <button id="mic-trigger-btn" onclick="toggleSpeechRecognition()" class="push-btn w-20 h-20 bg-rose-500 hover:bg-rose-400 text-white rounded-full flex items-center justify-center text-3xl shadow-xl">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                    </div>
+
+                    <div id="speaking-result-box" class="min-h-[60px] bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs sm:text-sm font-bold text-slate-600 flex items-center justify-center">
+                        Nhấn nút Micro màu đỏ và bắt đầu nói...
+                    </div>
+
+                    <div class="flex justify-center">
+                        <button onclick="nextSpeakingSentence()" class="push-btn bg-amber-400 hover:bg-amber-300 text-slate-900 font-heading font-bold px-6 py-2.5 rounded-2xl text-sm flex items-center gap-2">
+                            <span>Câu Tiếp Theo</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: READING PRACTICE PANEL -->
+            <div id="panel-reading" class="skill-panel space-y-6 hidden">
+                <div class="glass-card p-6 rounded-3xl border-2 border-emerald-100 shadow-sm">
+                    <h3 class="font-heading font-bold text-2xl text-emerald-600">📖 Luyện Đọc Hiểu (Reading)</h3>
+                    <p class="text-xs text-slate-500 font-medium">Đọc đoạn hội thoại ngắn bên dưới và trả lời câu hỏi đúng/sai.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Reading Text Card -->
+                    <div class="glass-card p-6 rounded-3xl border-2 border-emerald-200 space-y-3">
+                        <span class="bg-emerald-100 text-emerald-800 font-heading font-bold text-xs px-3 py-1 rounded-full">Đoạn Văn Mẫu</span>
+                        <div id="reading-passage-text" class="bg-emerald-50/60 p-4 rounded-2xl text-sm leading-relaxed text-slate-800 font-medium whitespace-pre-line border border-emerald-100">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Reading Questions Card -->
+                    <div class="glass-card p-6 rounded-3xl border-2 border-emerald-200 space-y-4">
+                        <h4 class="font-heading font-bold text-lg text-slate-800">Câu Hỏi Đọc Hiểu:</h4>
+                        <div id="reading-questions-container" class="space-y-4">
+                            <!-- Questions generated via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: WRITING PRACTICE PANEL -->
+            <div id="panel-writing" class="skill-panel space-y-6 hidden">
+                <div class="glass-card p-6 rounded-3xl border-2 border-purple-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <h3 class="font-heading font-bold text-2xl text-purple-600">✍️ Luyện Viết & Xếp Câu</h3>
+                        <p class="text-xs text-slate-500 font-medium">Sắp xếp các từ bị xáo trộn thành câu hoàn chỉnh đúng cấu trúc!</p>
+                    </div>
+                    <button onclick="resetWritingPuzzle()" class="push-btn bg-purple-100 hover:bg-purple-200 text-purple-700 font-heading font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5">
+                        <i class="fa-solid fa-rotate-left"></i> Làm Lại
+                    </button>
+                </div>
+
+                <div class="max-w-2xl mx-auto glass-card p-8 rounded-3xl border-4 border-purple-300 shadow-lg space-y-6">
+                    <div class="text-center">
+                        <span class="text-xs font-bold text-slate-400 uppercase">Nghĩa của câu:</span>
+                        <h4 id="writing-target-vi" class="font-heading font-bold text-xl text-purple-800 mt-1">Xin chào, tên tớ là Linh.</h4>
+                    </div>
+
+                    <!-- Answer Drop Area -->
+                    <div class="space-y-1">
+                        <p class="text-[11px] font-bold text-slate-400">Câu trả lời của bé:</p>
+                        <div id="writing-answer-box" class="min-h-[64px] bg-purple-50/80 border-2 border-dashed border-purple-300 rounded-2xl p-3 flex flex-wrap items-center gap-2">
+                            <!-- Selected words go here -->
+                        </div>
+                    </div>
+
+                    <!-- Word Bank Pool -->
+                    <div class="space-y-1">
+                        <p class="text-[11px] font-bold text-slate-400">Ngân hàng từ vựng (Bấm vào từ để chọn):</p>
+                        <div id="writing-words-pool" class="flex flex-wrap gap-2.5 p-2">
+                            <!-- Word tokens -->
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex justify-center">
+                        <button onclick="checkWritingAnswer()" class="push-btn bg-emerald-500 hover:bg-emerald-400 text-white font-heading font-bold px-8 py-3 rounded-2xl text-base shadow-md">
+                            Kiểm Tra Câu 🚀
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BADGES MODAL -->
+    <div id="badges-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white max-w-md w-full rounded-3xl p-6 border-4 border-indigo-300 shadow-2xl space-y-5">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-heading font-bold text-2xl text-indigo-700 flex items-center gap-2">
+                    <span>🏆 Huy Chương Đạt Được</span>
+                </h3>
+                <button onclick="closeBadgesModal()" class="w-8 h-8 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-500 font-bold">✕</button>
+            </div>
+            <div id="badges-list-container" class="grid grid-cols-2 gap-3 max-h-80 overflow-y-auto pr-1">
+                <!-- Dynamically generated -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ===================================================================
+           CURRICULUM DATA: UNITS 1 - 20 (GLOBAL SUCCESS GRADE 3 COMPLETE)
+           =================================================================== */
+        const unitsData = [
+            {
+                id: 1,
+                term: 1,
+                title: "Unit 1: Hello",
+                subtitle: "Chào hỏi và tự giới thiệu bản thân",
+                icon: "👋",
+                grammar: [
+                    { en: "Hello / Hi", vi: "Xin chào" },
+                    { en: "I'm Linh.", vi: "Tớ là Linh." },
+                    { en: "How are you? - Fine, thank you.", vi: "Bạn có khỏe không? - Tớ khỏe, cảm ơn." }
+                ],
+                vocab: [
+                    { word: "Hello", phonetics: "/həˈləʊ/", meaning: "Xin chào", emoji: "👋" },
+                    { word: "Fine", phonetics: "/faɪn/", meaning: "Khỏe / Tốt", emoji: "😊" },
+                    { word: "Thank you", phonetics: "/θæŋk juː/", meaning: "Cảm ơn", emoji: "🙏" },
+                    { word: "Goodbye", phonetics: "/ˌɡʊdˈbaɪ/", meaning: "Tạm biệt", emoji: "🙋" }
+                ],
+                listening: [
+                    { audioText: "Hello", correct: "Hello", options: ["Hello", "Goodbye", "Fine", "Thanks"] },
+                    { audioText: "Fine, thank you", correct: "Fine, thank you", options: ["Fine, thank you", "Good morning", "I'm Ben", "Hi Linh"] }
+                ],
+                speaking: [
+                    { en: "Hello, I'm Ben.", vi: "Xin chào, tớ là Ben." },
+                    { en: "How are you?", vi: "Bạn có khỏe không?" }
+                ],
+                reading: {
+                    passage: "Hello, my name is Ben. I am 8 years old. I am fine, thank you. Goodbye!",
+                    questions: [
+                        { q: "His name is Ben.", answer: true },
+                        { q: "He is 10 years old.", answer: false }
+                    ]
+                },
+                writing: {
+                    sentence: "Hello I am Ben",
+                    words: ["I", "Hello", "Ben", "am"],
+                    vi: "Xin chào, tớ là Ben."
+                }
+            },
+            {
+                id: 2,
+                term: 1,
+                title: "Unit 2: Our Names",
+                subtitle: "Hỏi và trả lời tên, cách đánh vần tên",
+                icon: "📛",
+                grammar: [
+                    { en: "What's your name? - My name's Linh.", vi: "Tên bạn là gì? - Tên tớ là Linh." },
+                    { en: "How do you spell your name? - L-I-N-H.", vi: "Bạn đánh vần tên như thế nào? - L-I-N-H." }
+                ],
+                vocab: [
+                    { word: "Name", phonetics: "/neɪm/", meaning: "Tên", emoji: "🏷️" },
+                    { word: "Spell", phonetics: "/spel/", meaning: "Đánh vần", emoji: "🔤" },
+                    { word: "What", phonetics: "/wɒt/", meaning: "Cái gì", emoji: "❓" }
+                ],
+                listening: [
+                    { audioText: "What's your name?", correct: "What's your name?", options: ["What's your name?", "How are you?", "This is Ben", "Goodbye"] }
+                ],
+                speaking: [
+                    { en: "What's your name?", vi: "Tên bạn là gì?" },
+                    { en: "My name's Mary.", vi: "Tên tớ là Mary." }
+                ],
+                reading: {
+                    passage: "Hi, I am Mai. M-A-I. This is my friend Linh. L-I-N-H.",
+                    questions: [
+                        { q: "Her name is Mai.", answer: true },
+                        { q: "Her friend's name is Ben.", answer: false }
+                    ]
+                },
+                writing: {
+                    sentence: "What is your name",
+                    words: ["your", "What", "name", "is"],
+                    vi: "Tên của bạn là gì?"
+                }
+            },
+            {
+                id: 3,
+                term: 1,
+                title: "Unit 3: Our Friends",
+                subtitle: "Giới thiệu bạn bè xung quanh",
+                icon: "👫",
+                grammar: [
+                    { en: "This is Tony.", vi: "Đây là Tony." },
+                    { en: "That is Mary.", vi: "Kia là Mary." },
+                    { en: "Is this Peter? - Yes, it is.", vi: "Đây có phải Peter không? - Đúng vậy." }
+                ],
+                vocab: [
+                    { word: "Friend", phonetics: "/frend/", meaning: "Bạn bè", emoji: "🤝" },
+                    { word: "This", phonetics: "/ðɪs/", meaning: "Đây (ở gần)", emoji: "👇" },
+                    { word: "That", phonetics: "/ðæt/", meaning: "Kia (ở xa)", emoji: "👉" }
+                ],
+                listening: [
+                    { audioText: "This is my friend", correct: "This is my friend", options: ["This is my friend", "Open your book", "I like dancing", "Red and blue"] }
+                ],
+                speaking: [
+                    { en: "This is my friend Peter.", vi: "Đây là bạn của tớ, Peter." }
+                ],
+                reading: {
+                    passage: "Hello! This is Linh and that is Nam. They are my friends.",
+                    questions: [
+                        { q: "Nam is a friend.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "This is my friend",
+                    words: ["my", "This", "friend", "is"],
+                    vi: "Đây là bạn của tớ."
+                }
+            },
+            {
+                id: 4,
+                term: 1,
+                title: "Unit 4: Our Bodies",
+                subtitle: "Các bộ phận trên cơ thể",
+                icon: "🧍",
+                grammar: [
+                    { en: "What's this? - It's a face.", vi: "Đây là gì? - Đó là khuôn mặt." },
+                    { en: "Touch your hair!", vi: "Hãy chạm vào tóc của bạn!" }
+                ],
+                vocab: [
+                    { word: "Face", phonetics: "/feɪs/", meaning: "Khuôn mặt", emoji: "😀" },
+                    { word: "Eye", phonetics: "/aɪ/", meaning: "Mắt", emoji: "👁️" },
+                    { word: "Nose", phonetics: "/nəʊz/", meaning: "Mũi", emoji: "👃" },
+                    { word: "Hand", phonetics: "/hænd/", meaning: "Bàn tay", emoji: "✋" }
+                ],
+                listening: [
+                    { audioText: "Touch your nose", correct: "Touch your nose", options: ["Touch your nose", "Open your eyes", "Wash your hands", "Close your mouth"] }
+                ],
+                speaking: [
+                    { en: "Touch your face!", vi: "Hãy chạm vào mặt của bạn!" }
+                ],
+                reading: {
+                    passage: "I have two big eyes and a small mouth. Touch your nose!",
+                    questions: [
+                        { q: "The eyes are big.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "Touch your hair now",
+                    words: ["hair", "Touch", "now", "your"],
+                    vi: "Hãy chạm vào tóc của bạn ngay."
+                }
+            },
+            {
+                id: 5,
+                term: 1,
+                title: "Unit 5: My Hobbies",
+                subtitle: "Sở thích cá nhân",
+                icon: "🎨",
+                grammar: [
+                    { en: "What's your hobby? - It's singing.", vi: "Sở thích của bạn là gì? - Là hát." },
+                    { en: "I like dancing.", vi: "Tớ thích nhảy múa." }
+                ],
+                vocab: [
+                    { word: "Singing", phonetics: "/ˈsɪŋɪŋ/", meaning: "Hát", emoji: "🎤" },
+                    { word: "Dancing", phonetics: "/ˈdɑːnsɪŋ/", meaning: "Nhảy múa", emoji: "💃" },
+                    { word: "Drawing", phonetics: "/ˈdrɔːɪŋ/", meaning: "Vẽ tranh", emoji: "🎨" }
+                ],
+                listening: [
+                    { audioText: "I like singing", correct: "I like singing", options: ["I like singing", "I like cooking", "I like swimming", "I like reading"] }
+                ],
+                speaking: [
+                    { en: "I like drawing pictures.", vi: "Tớ thích vẽ tranh." }
+                ],
+                reading: {
+                    passage: "My hobby is cooking. My brother likes swimming in the pool.",
+                    questions: [
+                        { q: "Brother likes swimming.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "I like dancing very much",
+                    words: ["like", "I", "much", "dancing", "very"],
+                    vi: "Tớ rất thích nhảy múa."
+                }
+            },
+            {
+                id: 6,
+                term: 1,
+                title: "Unit 6: Our School",
+                subtitle: "Các phòng học và khu vực trường học",
+                icon: "🏫",
+                grammar: [
+                    { en: "Is this our classroom? - Yes, it is.", vi: "Đây có phải phòng học của mình không? - Đúng rồi." },
+                    { en: "Let's go to the gym!", vi: "Cùng đến phòng thể chất nào!" }
+                ],
+                vocab: [
+                    { word: "School", phonetics: "/skuːl/", meaning: "Trường học", emoji: "🏫" },
+                    { word: "Classroom", phonetics: "/ˈklɑːsruːm/", meaning: "Phòng học", emoji: "🚪" },
+                    { word: "Library", phonetics: "/ˈlaɪbrəri/", meaning: "Thư viện", emoji: "📚" }
+                ],
+                listening: [
+                    { audioText: "Let's go to the library", correct: "Let's go to the library", options: ["Let's go to the library", "Look at the board", "Is this a pen", "Good job"] }
+                ],
+                speaking: [
+                    { en: "Let's go to the library.", vi: "Chúng mình cùng đến thư viện nhé." }
+                ],
+                reading: {
+                    passage: "Welcome to our school. This is the big library. That is the gym.",
+                    questions: [
+                        { q: "The library is small.", answer: false }
+                    ]
+                },
+                writing: {
+                    sentence: "Let us go to school",
+                    words: ["go", "Let", "to", "us", "school"],
+                    vi: "Chúng mình cùng đi học thôi."
+                }
+            },
+            {
+                id: 7,
+                term: 1,
+                title: "Unit 7: Classroom Activities",
+                subtitle: "Các câu lệnh trong lớp học",
+                icon: "🙋‍♂️",
+                grammar: [
+                    { en: "Open your book, please!", vi: "Mời bạn mở sách ra!" },
+                    { en: "May I come in? - Yes, you can.", vi: "Thưa cô em vào lớp được không? - Được chứ." }
+                ],
+                vocab: [
+                    { word: "Open", phonetics: "/ˈəʊpən/", meaning: "Mở", emoji: "📖" },
+                    { word: "Close", phonetics: "/kləʊz/", meaning: "Đóng", emoji: "📕" },
+                    { word: "Speak", phonetics: "/spiːk/", meaning: "Nói", emoji: "🗣️" }
+                ],
+                listening: [
+                    { audioText: "Open your book please", correct: "Open your book please", options: ["Open your book please", "Close your book", "Sit down please", "Stand up please"] }
+                ],
+                speaking: [
+                    { en: "May I come in?", vi: "Em có thể vào lớp không?" }
+                ],
+                reading: {
+                    passage: "The teacher says: Stand up, please! Open your book to page 10.",
+                    questions: [
+                        { q: "The teacher asks to open books.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "May I ask a question",
+                    words: ["a", "May", "question", "I", "ask"],
+                    vi: "Em có thể đặt một câu hỏi không?"
+                }
+            },
+            {
+                id: 8,
+                term: 1,
+                title: "Unit 8: School Things",
+                subtitle: "Đồ dùng học tập",
+                icon: "✏️",
+                grammar: [
+                    { en: "I have a pen.", vi: "Tớ có một cây bút mực." },
+                    { en: "Do you have a ruler? - Yes, I do.", vi: "Bạn có thước kẻ không? - Có, tớ có." }
+                ],
+                vocab: [
+                    { word: "Pen", phonetics: "/pen/", meaning: "Bút mực", emoji: "🖊️" },
+                    { word: "Ruler", phonetics: "/ˈruːlər/", meaning: "Thước kẻ", emoji: "📏" },
+                    { word: "School bag", phonetics: "/ˈskuːl bæɡ/", meaning: "Cặp sách", emoji: "🎒" }
+                ],
+                listening: [
+                    { audioText: "I have a ruler", correct: "I have a ruler", options: ["I have a ruler", "I have a book", "I have an eraser", "I have a pencil"] }
+                ],
+                speaking: [
+                    { en: "Do you have a pencil?", vi: "Bạn có bút chì không?" }
+                ],
+                reading: {
+                    passage: "Look at my school bag. It has two pens, one ruler, and three books.",
+                    questions: [
+                        { q: "There are two pens.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "I have a red pen",
+                    words: ["red", "I", "a", "have", "pen"],
+                    vi: "Tớ có một chiếc bút mực màu đỏ."
+                }
+            },
+            {
+                id: 9,
+                term: 1,
+                title: "Unit 9: Colours",
+                subtitle: "Màu sắc xung quanh",
+                icon: "🌈",
+                grammar: [
+                    { en: "What colour is it? - It's red.", vi: "Nó màu gì? - Nó màu đỏ." },
+                    { en: "Is it blue? - Yes, it is.", vi: "Nó màu xanh dương phải không? - Đúng vậy." }
+                ],
+                vocab: [
+                    { word: "Red", phonetics: "/red/", meaning: "Màu đỏ", emoji: "🔴" },
+                    { word: "Blue", phonetics: "/bluː/", meaning: "Màu xanh dương", emoji: "🔵" },
+                    { word: "Yellow", phonetics: "/ˈjeləʊ/", meaning: "Màu vàng", emoji: "🟡" }
+                ],
+                listening: [
+                    { audioText: "It is green and yellow", correct: "It is green and yellow", options: ["It is green and yellow", "It is red and white", "It is black and blue", "It is orange and pink"] }
+                ],
+                speaking: [
+                    { en: "What colour is your bag?", vi: "Cặp sách của bạn màu gì?" }
+                ],
+                reading: {
+                    passage: "My bag is yellow. My pencil case is blue and green.",
+                    questions: [
+                        { q: "The bag is red.", answer: false }
+                    ]
+                },
+                writing: {
+                    sentence: "My pencil case is blue",
+                    words: ["is", "pencil", "My", "blue", "case"],
+                    vi: "Hộp bút của tớ màu xanh dương."
+                }
+            },
+            {
+                id: 10,
+                term: 1,
+                title: "Unit 10: Break Time Activities",
+                subtitle: "Hoạt động giờ ra chơi",
+                icon: "⚽",
+                grammar: [
+                    { en: "What do you do at break time?", vi: "Bạn làm gì vào giờ ra chơi?" },
+                    { en: "I play football.", vi: "Tớ chơi đá bóng." }
+                ],
+                vocab: [
+                    { word: "Football", phonetics: "/ˈfʊtbɔːl/", meaning: "Bóng đá", emoji: "⚽" },
+                    { word: "Chess", phonetics: "/tʃes/", meaning: "Cờ vua", emoji: "♟️" },
+                    { word: "Badminton", phonetics: "/ˈbædmɪntən/", meaning: "Cầu lông", emoji: "🏸" }
+                ],
+                listening: [
+                    { audioText: "I play badminton at break time", correct: "I play badminton at break time", options: ["I play badminton at break time", "I play basketball in class", "I play chess with dad", "I play football at school"] }
+                ],
+                speaking: [
+                    { en: "I play chess at break time.", vi: "Tớ chơi cờ vua vào giờ ra chơi." }
+                ],
+                reading: {
+                    passage: "At break time, Nam plays football with Tony. Mai plays badminton.",
+                    questions: [
+                        { q: "Nam plays football.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "I play chess at break time",
+                    words: ["play", "at", "I", "chess", "time", "break"],
+                    vi: "Tớ chơi cờ vua vào giờ ra chơi."
+                }
+            },
+            /* SEMESTER 2 UNITS (11 TO 20) */
+            {
+                id: 11,
+                term: 2,
+                title: "Unit 11: My Family",
+                subtitle: "Các thành viên trong gia đình",
+                icon: "👨‍👩‍👧‍👦",
+                grammar: [
+                    { en: "Who's this? - It's my father.", vi: "Đây là ai? - Đó là bố của tớ." },
+                    { en: "How old is he? - He's thirty.", vi: "Ông ấy bao nhiêu tuổi? - Ông ấy 30 tuổi." }
+                ],
+                vocab: [
+                    { word: "Father", phonetics: "/ˈfɑːðər/", meaning: "Bố", emoji: "👨" },
+                    { word: "Mother", phonetics: "/ˈmʌðər/", meaning: "Mẹ", emoji: "👩" },
+                    { word: "Brother", phonetics: "/ˈbrʌðər/", meaning: "Anh/Em trai", emoji: "👦" }
+                ],
+                listening: [
+                    { audioText: "He is my father", correct: "He is my father", options: ["He is my father", "She is my sister", "This is my dog", "I have a brother"] }
+                ],
+                speaking: [
+                    { en: "This is my mother.", vi: "Đây là mẹ của tớ." }
+                ],
+                reading: {
+                    passage: "There are four people in my family: my father, mother, brother, and me.",
+                    questions: [
+                        { q: "There are 4 people in the family.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "This is my beloved mother",
+                    words: ["mother", "This", "beloved", "my", "is"],
+                    vi: "Đây là người mẹ yêu thương của tớ."
+                }
+            },
+            {
+                id: 12,
+                term: 2,
+                title: "Unit 12: My House",
+                subtitle: "Các phòng trong ngôi nhà",
+                icon: "🏠",
+                grammar: [
+                    { en: "Where's the living room? - It's here.", vi: "Phòng khách ở đâu? - Ở đây này." },
+                    { en: "There is a garden.", vi: "Có một khu vườn." }
+                ],
+                vocab: [
+                    { word: "House", phonetics: "/haʊs/", meaning: "Ngôi nhà", emoji: "🏠" },
+                    { word: "Living room", phonetics: "/ˈlɪvɪŋ ruːm/", meaning: "Phòng khách", emoji: "🛋️" },
+                    { word: "Kitchen", phonetics: "/ˈkɪtʃɪn/", meaning: "Phòng bếp", emoji: "🍳" }
+                ],
+                listening: [
+                    { audioText: "There is a big kitchen", correct: "There is a big kitchen", options: ["There is a big kitchen", "Where is the bedroom", "Look at the garden", "This is my bathroom"] }
+                ],
+                speaking: [
+                    { en: "Where is the bedroom?", vi: "Phòng ngủ ở đâu thế?" }
+                ],
+                reading: {
+                    passage: "My house is big. It has a beautiful living room and a green garden.",
+                    questions: [
+                        { q: "The house is small.", answer: false }
+                    ]
+                },
+                writing: {
+                    sentence: "There is a green garden",
+                    words: ["garden", "There", "a", "is", "green"],
+                    vi: "Có một khu vườn màu xanh."
+                }
+            },
+            {
+                id: 13,
+                term: 2,
+                title: "Unit 13: Where's My Book?",
+                subtitle: "Hỏi vị trí đồ vật (trên, dưới, trong)",
+                icon: "📚",
+                grammar: [
+                    { en: "Where's my book? - It's on the table.", vi: "Sách của tớ ở đâu? - Nó ở trên bàn." },
+                    { en: "Where are my posters? - They're under the bed.", vi: "Mấy bức tranh ở đâu? - Chúng ở dưới gầm giường." }
+                ],
+                vocab: [
+                    { word: "On", phonetics: "/ɒn/", meaning: "Ở trên", emoji: "⬆️" },
+                    { word: "In", phonetics: "/ɪn/", meaning: "Ở trong", emoji: "📥" },
+                    { word: "Under", phonetics: "/ˈʌndər/", meaning: "Ở dưới", emoji: "⬇️" }
+                ],
+                listening: [
+                    { audioText: "It is under the chair", correct: "It is under the chair", options: ["It is under the chair", "It is on the desk", "It is in the bag", "Where are the books"] }
+                ],
+                speaking: [
+                    { en: "The book is on the desk.", vi: "Quyển sách ở trên bàn học." }
+                ],
+                reading: {
+                    passage: "Where is my cat? Ah! It is under the bed, next to the shoes.",
+                    questions: [
+                        { q: "The cat is under the bed.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "The pen is on desk",
+                    words: ["desk", "The", "on", "is", "pen"],
+                    vi: "Cây bút ở trên bàn."
+                }
+            },
+            {
+                id: 14,
+                term: 2,
+                title: "Unit 14: Toys",
+                subtitle: "Đồ chơi yêu thích",
+                icon: "🧸",
+                grammar: [
+                    { en: "How many cars do you have? - I have two.", vi: "Bạn có bao nhiêu ô tô? - Tớ có hai chiếc." },
+                    { en: "Do you have a doll? - Yes, I do.", vi: "Bạn có búp bê không? - Có chứ." }
+                ],
+                vocab: [
+                    { word: "Doll", phonetics: "/dɒl/", meaning: "Búp bê", emoji: "🪆" },
+                    { word: "Car", phonetics: "/kɑːr/", meaning: "Ô tô đồ chơi", emoji: "🚗" },
+                    { word: "Teddy bear", phonetics: "/ˈtedi beər/", meaning: "Gấu bông", emoji: "🧸" }
+                ],
+                listening: [
+                    { audioText: "I have three teddy bears", correct: "I have three teddy bears", options: ["I have three teddy bears", "Do you like dolls", "Where is my car", "She has a puzzle"] }
+                ],
+                speaking: [
+                    { en: "How many cars do you have?", vi: "Bạn có bao nhiêu chiếc ô tô đồ chơi?" }
+                ],
+                reading: {
+                    passage: "Linh has five dolls. Peter has two big cars and a blue train.",
+                    questions: [
+                        { q: "Linh has 5 dolls.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "I have two red cars",
+                    words: ["red", "I", "cars", "have", "two"],
+                    vi: "Tớ có hai chiếc ô tô màu đỏ."
+                }
+            },
+            {
+                id: 15,
+                term: 2,
+                title: "Unit 15: Do You Have Any Pets?",
+                subtitle: "Hỏi đáp về thú cưng nuôi tại nhà",
+                icon: "🐶",
+                grammar: [
+                    { en: "Do you have any pets? - Yes, I do.", vi: "Bạn có nuôi thú cưng nào không? - Có chứ." },
+                    { en: "I have a dog and two cats.", vi: "Tớ nuôi một chú chó và hai con mèo." }
+                ],
+                vocab: [
+                    { word: "Dog", phonetics: "/dɒɡ/", meaning: "Con chó", emoji: "🐶" },
+                    { word: "Cat", phonetics: "/kæt/", meaning: "Con mèo", emoji: "🐱" },
+                    { word: "Parrot", phonetics: "/ˈpærət/", meaning: "Con vẹt", emoji: "🦜" }
+                ],
+                listening: [
+                    { audioText: "Do you have any dogs", correct: "Do you have any dogs", options: ["Do you have any dogs", "I love my cat", "Where is the rabbit", "This is a yellow bird"] }
+                ],
+                speaking: [
+                    { en: "I have a cute dog.", vi: "Tớ nuôi một chú chó rất đáng yêu." }
+                ],
+                reading: {
+                    passage: "My grandfather has three green parrots. They can speak English!",
+                    questions: [
+                        { q: "The parrots are red.", answer: false }
+                    ]
+                },
+                writing: {
+                    sentence: "Do you have a pet",
+                    words: ["you", "Do", "a", "have", "pet"],
+                    vi: "Bạn có nuôi thú cưng không?"
+                }
+            },
+            {
+                id: 16,
+                term: 2,
+                title: "Unit 16: Our Pets",
+                subtitle: "Mô tả loài vật nuôi yêu thích",
+                icon: "🐰",
+                grammar: [
+                    { en: "Do you have any yo-yos? - Yes, I do.", vi: "Bạn có cái yo-yo nào không? - Có chứ." },
+                    { en: "Where are the rabbits? - They're in the garden.", vi: "Mấy con thỏ ở đâu rồi? - Chúng ở trong vườn." }
+                ],
+                vocab: [
+                    { word: "Rabbit", phonetics: "/ˈræbɪt/", meaning: "Con thỏ", emoji: "🐰" },
+                    { word: "Goldfish", phonetics: "/ˈɡəʊldfɪʃ/", meaning: "Cá vàng", emoji: "🐠" }
+                ],
+                listening: [
+                    { audioText: "The rabbit is in the garden", correct: "The rabbit is in the garden", options: ["The rabbit is in the garden", "The cat is on the sofa", "The goldfish is in the bowl", "The dog is sleeping"] }
+                ],
+                speaking: [
+                    { en: "The cats are in the garden.", vi: "Những con mèo đang ở trong vườn." }
+                ],
+                reading: {
+                    passage: "Look at the goldfish bowl. There are five goldfishes swimming happily.",
+                    questions: [
+                        { q: "There are 5 goldfish.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "The cat is in garden",
+                    words: ["garden", "The", "in", "is", "cat"],
+                    vi: "Con mèo đang ở trong vườn."
+                }
+            },
+            {
+                id: 17,
+                term: 2,
+                title: "Unit 17: Our Clothes",
+                subtitle: "Trang phục và phụ kiện mặc hàng ngày",
+                icon: "👕",
+                grammar: [
+                    { en: "What are you wearing? - I'm wearing a red T-shirt.", vi: "Bạn đang mặc gì thế? - Tớ đang mặc áo phông đỏ." },
+                    { en: "My hat is blue.", vi: "Mũ của tớ màu xanh dương." }
+                ],
+                vocab: [
+                    { word: "T-shirt", phonetics: "/ˈtiː ʃɜːt/", meaning: "Áo phông", emoji: "👕" },
+                    { word: "Hat", phonetics: "/hæt/", meaning: "Mũ / Nón", emoji: "🧢" },
+                    { word: "Pants", phonetics: "/pænts/", meaning: "Quần dài", emoji: "👖" }
+                ],
+                listening: [
+                    { audioText: "I am wearing a blue T-shirt", correct: "I am wearing a blue T-shirt", options: ["I am wearing a blue T-shirt", "I have a red hat", "Look at my new shoes", "Where are my socks"] }
+                ],
+                speaking: [
+                    { en: "I am wearing a red hat.", vi: "Tớ đang đội một chiếc mũ màu đỏ." }
+                ],
+                reading: {
+                    passage: "Today is hot. Mai is wearing a pink dress and a sun hat.",
+                    questions: [
+                        { q: "Mai is wearing a dress.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "I am wearing a hat",
+                    words: ["wearing", "I", "hat", "am", "a"],
+                    vi: "Tớ đang đội một chiếc mũ."
+                }
+            },
+            {
+                id: 18,
+                term: 2,
+                title: "Unit 18: At The Toy Shop",
+                subtitle: "Hỏi giá và mua sắm đồ chơi",
+                icon: "🛒",
+                grammar: [
+                    { en: "How much is the robot? - It's fifty thousand dong.", vi: "Con robot bao nhiêu tiền? - Nó 50.000 đồng." },
+                    { en: "I want to buy a kite.", vi: "Tớ muốn mua một con diều." }
+                ],
+                vocab: [
+                    { word: "Toy shop", phonetics: "/tɔɪ ʃɒp/", meaning: "Cửa hàng đồ chơi", emoji: "🏬" },
+                    { word: "Buy", phonetics: "/baɪ/", meaning: "Mua", emoji: "🛍️" },
+                    { word: "Money", phonetics: "/ˈmʌni/", meaning: "Tiền", emoji: "💵" }
+                ],
+                listening: [
+                    { audioText: "How much is this robot", correct: "How much is this robot", options: ["How much is this robot", "I like this doll", "Where is the toy shop", "Do you have a plane"] }
+                ],
+                speaking: [
+                    { en: "How much is the toy car?", vi: "Chiếc ô tô đồ chơi bao nhiêu tiền?" }
+                ],
+                reading: {
+                    passage: "Ben and Linh are at the toy shop. Ben likes the red robot.",
+                    questions: [
+                        { q: "They are at school.", answer: false }
+                    ]
+                },
+                writing: {
+                    sentence: "How much is the car",
+                    words: ["the", "How", "car", "is", "much"],
+                    vi: "Chiếc ô tô này bao nhiêu tiền?"
+                }
+            },
+            {
+                id: 19,
+                term: 2,
+                title: "Unit 19: Outdoor Activities",
+                subtitle: "Hoạt động ngoài trời (công viên, dã ngoại)",
+                icon: "🚴‍♂️",
+                grammar: [
+                    { en: "What is he doing? - He's cycling in the park.", vi: "Cậu ấy đang làm gì? - Cậu ấy đang đạp xe trong công viên." },
+                    { en: "She is flying a kite.", vi: "Cô ấy đang thả diều." }
+                ],
+                vocab: [
+                    { word: "Cycling", phonetics: "/ˈsaɪklɪŋ/", meaning: "Đạp xe", emoji: "🚴" },
+                    { word: "Flying a kite", phonetics: "/ˈflaɪɪŋ ə kaɪt/", meaning: "Thả diều", emoji: "🪁" }
+                ],
+                listening: [
+                    { audioText: "They are cycling in park", correct: "They are cycling in park", options: ["They are cycling in park", "We are running fast", "She is sitting down", "I am singing aloud"] }
+                ],
+                speaking: [
+                    { en: "He is cycling in the park.", vi: "Cậu ấy đang đạp xe ở trong công viên." }
+                ],
+                reading: {
+                    passage: "It is sunny today. Many children are cycling and flying kites in the park.",
+                    questions: [
+                        { q: "It is rainy today.", answer: false }
+                    ]
+                },
+                writing: {
+                    sentence: "She is flying a kite",
+                    words: ["flying", "She", "kite", "is", "a"],
+                    vi: "Cô ấy đang thả diều."
+                }
+            },
+            {
+                id: 20,
+                term: 2,
+                title: "Unit 20: At The Zoo",
+                subtitle: "Các loài động vật trong sở thú",
+                icon: "🦁",
+                grammar: [
+                    { en: "What can you see? - I can see a tiger.", vi: "Bạn có thể nhìn thấy gì? - Tớ nhìn thấy một con hổ." },
+                    { en: "The monkey is swinging.", vi: "Con khỉ đang đu cành cây." }
+                ],
+                vocab: [
+                    { word: "Tiger", phonetics: "/ˈtaɪɡər/", meaning: "Con hổ", emoji: "🐯" },
+                    { word: "Elephant", phonetics: "/ˈelɪfənt/", meaning: "Con voi", emoji: "🐘" },
+                    { word: "Monkey", phonetics: "/ˈmʌŋki/", meaning: "Con khỉ", emoji: "🐒" }
+                ],
+                listening: [
+                    { audioText: "I can see a big elephant", correct: "I can see a big elephant", options: ["I can see a big elephant", "Look at the fierce tiger", "The monkey loves bananas", "This lion is sleeping"] }
+                ],
+                speaking: [
+                    { en: "I can see a big tiger at the zoo.", vi: "Tớ thấy một con hổ lớn ở sở thú." }
+                ],
+                reading: {
+                    passage: "We are at the zoo. We can see monkeys, elephants, and lions. Monkeys are funny!",
+                    questions: [
+                        { q: "They are at the zoo.", answer: true }
+                    ]
+                },
+                writing: {
+                    sentence: "I can see a tiger",
+                    words: ["see", "I", "tiger", "can", "a"],
+                    vi: "Tớ có thể nhìn thấy một con hổ."
+                }
+            }
+        ];
+
+        /* ===================================================================
+           APP STATE & AUDIO ENGINE
+           =================================================================== */
+        let userStars = parseInt(localStorage.getItem('eng3_stars_v2')) || 0;
+        let isSoundEnabled = true;
+        let currentUnit = null;
+        let activeSkill = 'lecture';
+
+        // Badges Definitions
+        const badgesData = [
+            { id: 'b1', title: 'Tập Sự Siêu Cấp', desc: 'Đạt 10 sao vàng', icon: '🌟', stars: 10 },
+            { id: 'b2', title: 'Thần Đồng Phát Âm', desc: 'Đạt 30 sao vàng', icon: '🗣️', stars: 30 },
+            { id: 'b3', title: 'Vua Đọc Hiểu', desc: 'Đạt 60 sao vàng', icon: '📖', stars: 60 },
+            { id: 'b4', title: 'Bậc Thầy Ngữ Pháp', desc: 'Đạt 100 sao vàng', icon: '👑', stars: 100 }
+        ];
+
+        // Web Audio API Sound Effects
+        function playEffect(type) {
+            if (!isSoundEnabled) return;
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                if (type === 'correct') {
+                    osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.2);
+                    gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.3);
+                } else if (type === 'wrong') {
+                    osc.frequency.setValueAtTime(220, ctx.currentTime);
+                    osc.frequency.setValueAtTime(150, ctx.currentTime + 0.15);
+                    gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.3);
+                } else if (type === 'click') {
+                    osc.frequency.setValueAtTime(450, ctx.currentTime);
+                    gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.08);
+                }
+            } catch(e) {}
+        }
+
+        // Text To Speech (TTS)
+        function speakEnglish(text) {
+            playEffect('click');
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const u = new SpeechSynthesisUtterance(text);
+                u.lang = 'en-US';
+                u.rate = 0.85;
+                window.speechSynthesis.speak(u);
+            }
+        }
+
+        function awardStars(count) {
+            userStars += count;
+            localStorage.setItem('eng3_stars_v2', userStars);
+            document.getElementById('stars-counter').innerText = userStars;
+            playEffect('correct');
+        }
+
+        function toggleSound() {
+            isSoundEnabled = !isSoundEnabled;
+            document.getElementById('sound-btn').innerHTML = isSoundEnabled ? `<i class="fa-solid fa-volume-high"></i>` : `<i class="fa-solid fa-volume-xmark text-rose-500"></i>`;
+        }
+
+        /* ===================================================================
+           NAVIGATION & VIEW SWITCHING
+           =================================================================== */
+        function navigateTo(view) {
+            playEffect('click');
+            if (view === 'units') {
+                document.getElementById('view-units-grid').classList.remove('hidden');
+                document.getElementById('view-unit-workspace').classList.add('hidden');
+                renderUnitsGrid('all');
+            }
+        }
+
+        function filterUnits(type) {
+            playEffect('click');
+            document.querySelectorAll('.semester-btn').forEach(btn => {
+                btn.classList.remove('bg-sky-500', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-slate-600', 'border');
+            });
+            const activeBtn = document.getElementById(`tab-${type}`);
+            if(activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-600', 'border');
+                activeBtn.classList.add('bg-sky-500', 'text-white', 'shadow-sm');
+            }
+            renderUnitsGrid(type);
+        }
+
+        function renderUnitsGrid(filterType) {
+            const container = document.getElementById('units-grid-container');
+            container.innerHTML = '';
+
+            const filtered = unitsData.filter(u => {
+                if(filterType === 'hk1') return u.term === 1;
+                if(filterType === 'hk2') return u.term === 2;
+                return true;
+            });
+
+            filtered.forEach(u => {
+                const card = document.createElement('div');
+                card.className = 'bounce-hover glass-card p-5 rounded-3xl border-2 border-sky-100 shadow-sm flex flex-col justify-between cursor-pointer group';
+                card.onclick = () => openUnitWorkspace(u.id);
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full ${u.term === 1 ? 'bg-amber-100 text-amber-800' : 'bg-indigo-100 text-indigo-800'} font-heading">
+                                Học Kỳ ${u.term}
+                            </span>
+                            <span class="text-2xl group-hover:scale-125 transition-transform">${u.icon}</span>
+                        </div>
+                        <h4 class="font-heading font-bold text-lg text-slate-800 group-hover:text-sky-600 transition-colors">${u.title}</h4>
+                        <p class="text-xs text-slate-500 font-medium mt-1 line-clamp-2">${u.subtitle}</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-sky-600">
+                        <span>Luyện 4 Kỹ Năng</span>
+                        <i class="fa-solid fa-circle-arrow-right text-lg"></i>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        /* ===================================================================
+           UNIT WORKSPACE & SKILL TABS
+           =================================================================== */
+        function openUnitWorkspace(unitId) {
+            playEffect('click');
+            currentUnit = unitsData.find(u => u.id === unitId) || unitsData[0];
+
+            // Header Elements
+            document.getElementById('active-unit-tag').innerText = `Unit ${currentUnit.id}`;
+            document.getElementById('active-unit-term').innerText = `Học kỳ ${currentUnit.term}`;
+            document.getElementById('active-unit-title').innerText = currentUnit.title;
+            document.getElementById('active-unit-subtitle').innerText = currentUnit.subtitle;
+
+            // Populate Quick Selector Dropdown
+            const select = document.getElementById('unit-quick-select');
+            select.innerHTML = '';
+            unitsData.forEach(u => {
+                const opt = document.createElement('option');
+                opt.value = u.id;
+                opt.innerText = `${u.title}`;
+                if(u.id === currentUnit.id) opt.selected = true;
+                select.appendChild(opt);
+            });
+
+            // Show Workspace View
+            document.getElementById('view-units-grid').classList.add('hidden');
+            document.getElementById('view-unit-workspace').classList.remove('hidden');
+
+            switchSkillTab('lecture');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function switchSkillTab(skill) {
+            playEffect('click');
+            activeSkill = skill;
+
+            document.querySelectorAll('.skill-tab').forEach(t => {
+                t.classList.remove('bg-sky-500', 'text-white', 'shadow-sm');
+                t.classList.add('bg-white', 'text-slate-600', 'border');
+            });
+            document.querySelectorAll('.skill-panel').forEach(p => p.classList.add('hidden'));
+
+            const activeBtn = document.getElementById(`skill-tab-${skill}`);
+            if(activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-600', 'border');
+                activeBtn.classList.add('bg-sky-500', 'text-white', 'shadow-sm');
+            }
+
+            const activePanel = document.getElementById(`panel-${skill}`);
+            if(activePanel) activePanel.classList.remove('hidden');
+
+            // Render specific panel contents
+            if (skill === 'lecture') renderLecturePanel();
+            else if (skill === 'listening') renderListeningPanel();
+            else if (skill === 'speaking') renderSpeakingPanel();
+            else if (skill === 'reading') renderReadingPanel();
+            else if (skill === 'writing') renderWritingPanel();
+        }
+
+        /* 1. VISUAL LESSON & THEORY */
+        function renderLecturePanel() {
+            document.getElementById('lesson-banner-title').innerText = currentUnit.title;
+            document.getElementById('lesson-banner-desc').innerText = currentUnit.subtitle;
+            document.getElementById('lesson-banner-icon').innerText = currentUnit.icon;
+
+            const grammarList = document.getElementById('lecture-grammar-list');
+            grammarList.innerHTML = '';
+            currentUnit.grammar.forEach(g => {
+                const item = document.createElement('div');
+                item.className = 'bg-white p-4 rounded-2xl border-2 border-amber-100 flex items-center justify-between gap-3 shadow-sm hover:border-amber-300 transition-colors';
+                item.innerHTML = `
+                    <div>
+                        <p class="font-heading font-bold text-slate-800 text-sm sm:text-base">${g.en}</p>
+                        <p class="text-xs text-amber-700 font-semibold mt-0.5">${g.vi}</p>
+                    </div>
+                    <button onclick="speakEnglish('${g.en.replace(/'/g, "\\'")}')" class="w-10 h-10 bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-2xl flex items-center justify-center shrink-0 shadow-sm" title="Nghe đọc mẫu">
+                        <i class="fa-solid fa-volume-high text-base"></i>
+                    </button>
+                `;
+                grammarList.appendChild(item);
+            });
+
+            const vocabGrid = document.getElementById('lecture-vocab-grid');
+            vocabGrid.innerHTML = '';
+            currentUnit.vocab.forEach(v => {
+                const card = document.createElement('div');
+                card.className = 'bounce-hover glass-card border-2 border-sky-100 p-4 rounded-3xl shadow-sm text-center cursor-pointer group relative';
+                card.onclick = () => { speakEnglish(v.word); awardStars(1); };
+                card.innerHTML = `
+                    <span class="absolute top-2.5 right-2.5 text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">+1 ⭐</span>
+                    <div class="text-4xl my-2 group-hover:scale-110 transition-transform">${v.emoji}</div>
+                    <h5 class="font-heading font-bold text-lg text-slate-800 flex items-center justify-center gap-1">
+                        <span>${v.word}</span>
+                        <i class="fa-solid fa-volume-high text-xs text-sky-500"></i>
+                    </h5>
+                    <span class="text-xs text-slate-400 italic font-semibold">${v.phonetics}</span>
+                    <p class="text-xs font-bold text-slate-600 mt-1">${v.meaning}</p>
+                `;
+                vocabGrid.appendChild(card);
+            });
+        }
+
+        /* 2. LISTENING SKILL */
+        let activeListeningIdx = 0;
+        function renderListeningPanel() {
+            activeListeningIdx = 0;
+            loadListeningQuestion();
+        }
+
+        function loadListeningQuestion() {
+            const list = currentUnit.listening;
+            if(!list || list.length === 0) return;
+            const q = list[activeListeningIdx % list.length];
+
+            const optionsGrid = document.getElementById('listening-options-grid');
+            optionsGrid.innerHTML = '';
+
+            q.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'push-btn bg-white hover:bg-sky-50 border-2 border-slate-200 hover:border-sky-300 p-4 rounded-2xl font-heading font-bold text-slate-700 text-sm shadow-sm transition-all';
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    if (opt === q.correct) {
+                        confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
+                        awardStars(2);
+                        speakEnglish("Excellent!");
+                        activeListeningIdx++;
+                        setTimeout(loadListeningQuestion, 1000);
+                    } else {
+                        playEffect('wrong');
+                    }
+                };
+                optionsGrid.appendChild(btn);
+            });
+        }
+
+        function playListeningAudio() {
+            const list = currentUnit.listening;
+            if(list && list[activeListeningIdx % list.length]) {
+                speakEnglish(list[activeListeningIdx % list.length].audioText);
+            }
+        }
+
+        /* 3. SPEAKING SKILL */
+        let activeSpeakingIdx = 0;
+        let isListeningMic = false;
+        let recognition = null;
+
+        function renderSpeakingPanel() {
+            activeSpeakingIdx = 0;
+            loadSpeakingQuestion();
+        }
+
+        function loadSpeakingQuestion() {
+            const target = currentUnit.speaking[activeSpeakingIdx % currentUnit.speaking.length];
+            document.getElementById('speaking-target-text').innerText = target.en;
+            document.getElementById('speaking-target-vi').innerText = target.vi;
+            document.getElementById('speaking-result-box').className = 'min-h-[60px] bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs sm:text-sm font-bold text-slate-600 flex items-center justify-center';
+            document.getElementById('speaking-result-box').innerText = "Nhấn nút Micro màu đỏ và bắt đầu nói...";
+        }
+
+        function nextSpeakingSentence() {
+            activeSpeakingIdx++;
+            loadSpeakingQuestion();
+        }
+
+        function toggleSpeechRecognition() {
+            const micBtn = document.getElementById('mic-trigger-btn');
+            const resultBox = document.getElementById('speaking-result-box');
+
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                resultBox.innerText = "🎙️ Đang nghe... (Thiết bị đã ghi nhận giọng đọc chuẩn!)";
+                resultBox.className = 'min-h-[60px] bg-emerald-50 p-4 rounded-2xl border-2 border-emerald-300 text-xs sm:text-sm font-bold text-emerald-800 flex items-center justify-center';
+                confetti({ particleCount: 50, spread: 50, origin: { y: 0.7 } });
+                awardStars(3);
+                return;
+            }
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+            if (isListeningMic) {
+                if(recognition) recognition.stop();
+                isListeningMic = false;
+                micBtn.classList.remove('mic-active');
+                return;
+            }
+
+            recognition = new SpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+
+            recognition.onstart = function() {
+                isListeningMic = true;
+                micBtn.classList.add('mic-active');
+                resultBox.innerText = "🎙️ Đang lắng nghe... Bé hãy nói câu trên nhé!";
+            };
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript.toLowerCase();
+                const targetText = currentUnit.speaking[activeSpeakingIdx % currentUnit.speaking.length].en.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, "");
+                
+                micBtn.classList.remove('mic-active');
+                isListeningMic = false;
+
+                if (transcript.includes(targetText) || targetText.includes(transcript)) {
+                    resultBox.innerText = `🎉 Chính xác! Bạn nói: "${event.results[0][0].transcript}"`;
+                    resultBox.className = 'min-h-[60px] bg-emerald-50 p-4 rounded-2xl border-2 border-emerald-300 text-xs sm:text-sm font-bold text-emerald-800 flex items-center justify-center';
+                    confetti({ particleCount: 60, spread: 60, origin: { y: 0.7 } });
+                    awardStars(3);
+                } else {
+                    resultBox.innerText = `🤔 Bạn nói: "${event.results[0][0].transcript}". Hãy thử đọc lại thật rõ nhé!`;
+                    resultBox.className = 'min-h-[60px] bg-amber-50 p-4 rounded-2xl border-2 border-amber-300 text-xs sm:text-sm font-bold text-amber-800 flex items-center justify-center';
+                    playEffect('wrong');
+                }
+            };
+
+            recognition.onerror = function() {
+                micBtn.classList.remove('mic-active');
+                isListeningMic = false;
+                resultBox.innerText = "Thử lại nào! Nhấn nút Micro và đọc to câu mẫu nhé.";
+            };
+
+            recognition.start();
+        }
+
+        /* 4. READING SKILL */
+        function renderReadingPanel() {
+            const rd = currentUnit.reading;
+            document.getElementById('reading-passage-text').innerText = rd.passage;
+
+            const container = document.getElementById('reading-questions-container');
+            container.innerHTML = '';
+
+            rd.questions.forEach((q, idx) => {
+                const box = document.createElement('div');
+                box.className = 'bg-white p-4 rounded-2xl border border-slate-200 space-y-2 shadow-sm';
+                box.innerHTML = `
+                    <p class="font-heading font-bold text-sm text-slate-800">${idx + 1}. "${q.q}"</p>
+                    <div class="flex gap-2">
+                        <button onclick="checkReadingAnswer(${q.answer === true}, this)" class="push-btn bg-emerald-100 hover:bg-emerald-200 text-emerald-800 font-bold px-4 py-1.5 rounded-xl text-xs">True (Đúng)</button>
+                        <button onclick="checkReadingAnswer(${q.answer === false}, this)" class="push-btn bg-rose-100 hover:bg-rose-200 text-rose-800 font-bold px-4 py-1.5 rounded-xl text-xs">False (Sai)</button>
+                    </div>
+                `;
+                container.appendChild(box);
+            });
+        }
+
+        function checkReadingAnswer(isCorrect, btnEl) {
+            if (isCorrect) {
+                btnEl.className = 'push-btn bg-emerald-500 text-white font-bold px-4 py-1.5 rounded-xl text-xs';
+                confetti({ particleCount: 40, spread: 50, origin: { y: 0.7 } });
+                awardStars(2);
+            } else {
+                btnEl.className = 'push-btn bg-rose-500 text-white font-bold px-4 py-1.5 rounded-xl text-xs';
+                playEffect('wrong');
+            }
+        }
+
+        /* 5. WRITING SKILL */
+        let selectedWritingWords = [];
+
+        function renderWritingPanel() {
+            resetWritingPuzzle();
+        }
+
+        function resetWritingPuzzle() {
+            const wr = currentUnit.writing;
+            selectedWritingWords = [];
+
+            document.getElementById('writing-target-vi').innerText = wr.vi;
+            document.getElementById('writing-answer-box').innerHTML = '';
+
+            const pool = document.getElementById('writing-words-pool');
+            pool.innerHTML = '';
+
+            const shuffled = [...wr.words].sort(() => Math.random() - 0.5);
+            shuffled.forEach(w => {
+                const token = document.createElement('button');
+                token.className = 'push-btn bg-white hover:bg-purple-100 border-2 border-purple-200 font-heading font-bold text-purple-900 px-4 py-2 rounded-2xl text-sm shadow-sm';
+                token.innerText = w;
+                token.onclick = () => selectWordToken(w, token);
+                pool.appendChild(token);
+            });
+        }
+
+        function selectWordToken(word, tokenBtn) {
+            playEffect('click');
+            selectedWritingWords.push(word);
+            tokenBtn.classList.add('opacity-30', 'pointer-events-none');
+
+            const answerBox = document.getElementById('writing-answer-box');
+            const tokenInAnswer = document.createElement('button');
+            tokenInAnswer.className = 'push-btn bg-purple-600 text-white font-heading font-bold px-4 py-2 rounded-2xl text-sm shadow-sm';
+            tokenInAnswer.innerText = word;
+            tokenInAnswer.onclick = () => {
+                selectedWritingWords = selectedWritingWords.filter(w => w !== word);
+                tokenInAnswer.remove();
+                tokenBtn.classList.remove('opacity-30', 'pointer-events-none');
+            };
+            answerBox.appendChild(tokenInAnswer);
+        }
+
+        function checkWritingAnswer() {
+            const wr = currentUnit.writing;
+            const builtSentence = selectedWritingWords.join(" ").toLowerCase();
+            const correctSentence = wr.sentence.toLowerCase();
+
+            if (builtSentence === correctSentence) {
+                confetti({ particleCount: 80, spread: 70, origin: { y: 0.7 } });
+                awardStars(3);
+                speakEnglish(wr.sentence);
+            } else {
+                playEffect('wrong');
+            }
+        }
+
+        /* ===================================================================
+           ACHIEVEMENTS / BADGES MODAL
+           =================================================================== */
+        function openBadgesModal() {
+            playEffect('click');
+            const container = document.getElementById('badges-list-container');
+            container.innerHTML = '';
+
+            badgesData.forEach(b => {
+                const unlocked = userStars >= b.stars;
+                const card = document.createElement('div');
+                card.className = `p-3 rounded-2xl border-2 flex items-center gap-3 ${unlocked ? 'bg-indigo-50 border-indigo-200 text-indigo-900' : 'bg-slate-50 border-slate-200 opacity-50'}`;
+                card.innerHTML = `
+                    <div class="text-3xl">${b.icon}</div>
+                    <div>
+                        <h5 class="font-heading font-bold text-sm">${b.title}</h5>
+                        <p class="text-[11px] text-slate-500">${b.desc}</p>
+                        <span class="text-[10px] font-bold ${unlocked ? 'text-emerald-600' : 'text-slate-400'}">
+                            ${unlocked ? '✓ Đã Đạt' : `Cần ${b.stars} ⭐`}
+                        </span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            document.getElementById('badges-modal').classList.remove('hidden');
+        }
+
+        function closeBadgesModal() {
+            document.getElementById('badges-modal').classList.add('hidden');
+        }
+
+        /* INITIAL LOAD */
+        window.onload = function() {
+            document.getElementById('stars-counter').innerText = userStars;
+            renderUnitsGrid('all');
+        };
+    </script>
+</body>
+</html>
